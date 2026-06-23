@@ -1,21 +1,40 @@
 "use client";
 
+import {useState} from "react";
 import Image from "next/image";
 import { Photo } from "@/types/gallery";
+import ImageLightbox from "./ImageLightbox";
 
 interface MasonryGridProps {
     photos: Photo[];
 }
 
 export default function MasonryGrid({ photos }: MasonryGridProps) {
+    const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
+
+    const openLightbox = (index: number) => setSelectedIndex(null);
+    const closeLightbox = () => setSelectedIndex(null);
+
+    const showNext = () => {
+        if (selectedIndex !== null) {
+            setSelectedIndex((selectedIndex + 1) % photos.length);
+        }
+    };
+
+    const ShowPrev = () => {
+        if (selectedIndex !== null) {
+            setSelectedIndex((selectedIndex - 1 + photos.length) % photos.length);
+        }
+    };
+
     return (
         <div className="columns-1 sm: columns-2 lg: colunms-3 gap-6 space-y-6 max-w-7xl mx-auto px-4">
             {photos.map((photo) => (
                 <div
                     key={photo.id}
                     className="break-inside-avoid relative group overflow-hidden rounded-lg cursor-pointer bg-gray-100"
-                //TODO: add onclick for lightbox
-                >
+                    onClick={() => openLightbox(index)}
+                    >
                     <Image
                         src={photo.url}
                         alt={photo.altText}
@@ -35,5 +54,15 @@ export default function MasonryGrid({ photos }: MasonryGridProps) {
                 </div>
             ))}
         </div>
+        {/*render lightbox*/}
+        {selectedIndex !== null && (
+            <ImageLightbox
+                photos = { photos[selectedIndex]}
+                onClose = {closeLightbox}
+                onNext = {showNext}
+                onPrev = {showPrev}
+                />
+            )}
+        </>
     );
 }
