@@ -1,65 +1,91 @@
-import Image from "next/image";
+import MasonryGrid from "@/components/MasonryGrid";
+import { Photo } from "@/types/gallery";
+
 
 export default function Home() {
+
+  const portfolioPhotos: Photo[] = [
+    {
+      id: "smug-1",
+      url: "https://photos.smugmug.com/Weddings/Pike/Pike/i-XSk7Mws/2/MWWw9QkwhHfxHQP95ccZSX2DnCLhC4PJ9FVSRwbc3/X2/IMG_0213-2-X2.jpg",
+      altText: "Bride kneeling in chruch before ceremony",
+      width: 1920,
+      height: 1280, // Landscape
+    },
+    {
+      id: "smug-2",
+      url: "https://photos.smugmug.com/Weddings/OpokuB/Opoku/i-TsD6NFz/0/LKp8NQMCVXDP8cKMqMwbTzkR5M7jpHpCRkvKBQT2f/X2/IMG_7734-X2.jpg",
+      altText: "Copule celebrates with parents after ceremony",
+      width: 1280,
+      height: 1920, // Portrait
+    },
+    {
+      id: "smug-3",
+      url: "https://photos.smugmug.com/Weddings/Lefler/i-NPPN55Z/0/NBB7zSKxQ6JDbnMnf6DN96swGGdQgfWxc5QRb3VC4/X4/3U4A5735-X4.jpg",
+      altText: "Close up of jewelry from the bride's parents",
+      width: 1920,
+      height: 1280,
+    },
+    {
+      id: "smug-4",
+      url: "https://photos.smugmug.com/Weddings/Pike/Reception/i-v8rRVQH/0/MvWr39LMHPx7PQtzQ62g7QvWmvcZJWcQtZ6J5SCBK/X2/IMG_0691-X2.jpg",
+      altText: "Couple prays prior to the reception dinner",
+      width: 1920,
+      height: 1280,
+    },
+    {
+      id: "smug-5",
+      url: "https://photos.smugmug.com/Weddings/OpokuB/Opoku/i-4hCTcVX/0/KJphQj45Jm5GdKZC7NczGtBWTv5hkCFKQ4nNVfnJZ/X2/IMG_7715-X2.jpg",
+      altText: "Bride and Groom sign marriage certificate",
+      width: 1920,
+      height: 1280,
+    },
+    {
+      id: "smug-6",
+      url: "https://photos.smugmug.com/Weddings/AmberMattM/AmberMattMWedding/i-HW7vLGw/0/Kf4HCkRCBwHK6RrgdrgKH8B9Rf5P4kVN4StFgXS5F/X4/IMG_0474-X4.jpg",
+      altText: "Bride is escorted in by her father",
+      width: 1280,
+      height: 1920,
+    },
+    {
+      id: "smug-7",
+      url: "https://photos.smugmug.com/Other/n-jFCXx/Seattle-2021/i-Fv358CG/0/LTcCB2ZqkjWpdHQ24sMRkXMmsqBSRJ2H4v5rf7jLG/X4/untitled%20shoot-0145-X4.jpg",
+      altText: "Glass sculptures from the Chihuly museum",
+      width: 1920,
+      height: 1280,
+    },
+    {
+      id: "smug-8",
+      url: "https://photos.smugmug.com/Other/n-jFCXx/Seattle-2021/i-MNR94ns/0/MJkW66qkHzS5NttkdkxnzbR9FwRbRbHq6s6h6gPXp/X2/untitled%20shoot-0181-X2.jpg",
+      altText: "glass sculpture from the Chihuly museum",
+      width: 1920,
+      height: 1280,
+    },
+    {
+      id: "smug-9",
+      url: "https://photos.smugmug.com/Graduation/n-CmBkB/2023-3-25-Raquel-Sandoval-Graduation/i-jnW3PGx/0/NGfhM8bSpDCnG8wdgNgFD2Hqt7z9s26tCQvZ96fPg/X4/3U4A3571-X4.jpg",
+      altText: "Raquel celebrates graduation",
+      width: 1280,
+      height: 1920,
+    }
+
+  ];
+
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
+    <main className="min-h-screen py-12 bg-white">
+      <div className="max-w-7xl mx-auto px-4 mb-12">
+        <h1 className="text-4xl font-light tracking-wide text-gray-900 text-center mb-4">
+          Matthew Allen Thompson Photography
+        </h1>
+        <p className="text-center text-gray-500 font-light">
+          Selected Works & Wedding Commissions
+        </p>
+      </div>
+
+      {/* We pass the data to our Client Component. 
+        The heavy lifting of state and layout happens inside the grid.
+      */}
+      <MasonryGrid photos={portfolioPhotos} />
+    </main>
   );
 }

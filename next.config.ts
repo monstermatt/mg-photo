@@ -3,7 +3,16 @@ import type { NextConfig } from "next";
 const nextConfig: NextConfig = {
   /* config options here */
   output: 'standalone',
-  images: {}
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "photos.smugmug.com",
+        port: "",
+        pathname: "/**",
+      },
+    ],
+  },
   reactCompiler: true,
 };
 
